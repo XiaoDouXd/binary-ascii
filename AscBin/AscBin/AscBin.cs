@@ -238,7 +238,7 @@ public static class AscBin
         sbyte ret = 0;
         var codeCount = (uint)CharCodeMap.Count;
         var t = (ulong)codeCount;
-        while (t < unit)
+        while (t <= unit)
         {
             t *= codeCount;
             ret += 1;
