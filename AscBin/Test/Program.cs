@@ -6,11 +6,12 @@ public static class Program
 {
     private static void Run()
     {
-        var c = "一些非 ascii 字符串";
-        var encoded = AscBin.EncodeReadable(c);
+        var c = "``]# !G#i$^($$ !O# !W# !_#I5, M#%%>7d>`...g#000000gshake+4fsize-4jexsize+2+4";
+        var encoded = AscBin.EncodeReadable([8192]);
         Console.WriteLine(c);
         Console.WriteLine(encoded.Select(v => (char)v).ToArray());
-        Console.WriteLine(AscBin.DecodeReadable(encoded));
+        var d = AscBin.DecodeReadable(c.Select(v => (byte)v).ToArray());
+        Console.WriteLine(d);
     }
 
     private static void Main()

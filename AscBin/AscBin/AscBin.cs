@@ -15,8 +15,8 @@ public static class AscBin
 {
     public const sbyte DefaultMaxCodeLength = 9;
     public const char DefaultCodeLenghtKeyChar = '`';
-    public const string DefaultIgnoreCharSet = @"""'\`";
-    public const string DefaultCharSet = " !#$%&()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~";
+    public const string DefaultIgnoreCharSet = @"""\`";
+    public const string DefaultCharSet = " !#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[]^_abcdefghijklmnopqrstuvwxyz{|}~";
 
     public static ulong MaxCode { get; private set; }
     public static sbyte MaxCodeLength { get; private set; } = DefaultMaxCodeLength;
