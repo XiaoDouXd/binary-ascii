@@ -47,6 +47,27 @@ public static class AscBin
     }
 
     /// <summary>
+    /// 可读性更高的字符串编码方式
+    /// </summary>
+    /// <param name="data"> 字符串 </param>
+    /// <returns> 编码结果 </returns>
+    public static byte[] EncodeReadable(in ReadOnlySpan<ulong> data)
+    {
+        Span<ulong> lData = stackalloc ulong[data.Length];
+        for (var i = 0; i < data.Length; i++)
+        {
+            var c = data[i];
+            if (c < byte.MaxValue)
+            {
+                if (CharCodeMap.TryGetValue((byte)c, out var code)) lData[i] = code;
+                else lData[i] = c + CodeRadix;
+            }
+            else lData[i] = c + CodeRadix;
+        }
+        return Encode(lData);
+    }
+
+    /// <summary>
     /// 编码数据
     /// </summary>
     /// <param name="data"> 数据 </param>
